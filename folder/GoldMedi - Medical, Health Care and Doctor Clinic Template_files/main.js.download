@@ -1,0 +1,31 @@
+$(document).ready(function(){
+	// Menu JS
+    $('.see-demo').on('click', function(e){
+        var anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $(anchor.attr('href')).offset().top + 10
+        }, 1500);
+        e.preventDefault();
+    });
+    
+    /* Go To Top
+    ========================================================*/
+    $(function(){
+		//Scroll event
+		$(window).on('scroll', function(){
+			var scrolled = $(window).scrollTop();
+			if (scrolled > 300) $('.go-top').fadeIn('slow');
+			if (scrolled < 300) $('.go-top').fadeOut('slow');
+		});  
+		//Click event
+		$('.go-top').on('click', function() {
+			$("html, body").animate({ scrollTop: "0" },  500);
+		});
+	});
+    
+	/* Preloader
+    ========================================================*/
+    jQuery(window).on('load', function() {
+        $('.preloader-area').fadeOut();
+    });
+});
